@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby Shower RSVP – Christina Orsi</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Petit+Formal+Script&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Petit+Formal+Script&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-
 body {
   background: #fffcf5;
   font-family: 'Jost', sans-serif;
@@ -15,342 +14,160 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
 .page {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 20px 80px;
   position: relative;
 }
+.fruit-scene { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.fruit-scene svg { position:absolute; }
+.dots { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.dot { position:absolute; border-radius:50%; }
+.content { position:relative; z-index:2; padding-top:60px; }
 
-.fruit-scene {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.fruit-scene svg {
-  position: absolute;
-}
-
-.dots {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.dot {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  padding-top: 60px;
-}
-
+/* ── Hero ── */
 .hero {
-  text-align: center;
-  padding: 44px 36px 40px;
-  background: #fff;
-  border-radius: 32px;
-  border: 2.5px solid #fce4c8;
-  position: relative;
-  overflow: hidden;
-  animation: riseUp 0.8s cubic-bezier(.22,1,.36,1) both;
+  text-align:center; padding:44px 36px 40px;
+  background:#fff; border-radius:32px; border:2.5px solid #fce4c8;
+  position:relative; overflow:hidden;
+  animation:riseUp 0.8s cubic-bezier(.22,1,.36,1) both;
 }
-
 .hero-rainbow {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 7px;
-  background: linear-gradient(90deg,#e8407a 0%,#f0643a 20%,#f5a623 38%,#4caf50 55%,#2abfa3 72%,#9b59b6 100%);
-  border-radius: 32px 32px 0 0;
+  position:absolute; top:0; left:0; right:0; height:7px;
+  background:linear-gradient(90deg,#e8407a 0%,#f0643a 20%,#f5a623 38%,#4caf50 55%,#2abfa3 72%,#9b59b6 100%);
+  border-radius:32px 32px 0 0;
 }
-
-.eyebrow {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 20px;
-  color: #2abfa3;
-  margin-bottom: 8px;
-  margin-top: 4px;
-}
-
-.hero-script {
-  font-family: 'Petit Formal Script', cursive;
-  line-height: 0.95;
-  display: block;
-}
-.hero-script.sweet { color: #e8407a; font-size: clamp(52px,12vw,72px); }
-.hero-script.little { color: #2abfa3; font-size: clamp(36px,9vw,52px); }
-.hero-script.baby  { color: #f0643a; font-size: clamp(56px,13vw,80px); }
-
+.eyebrow { font-family:'Petit Formal Script',cursive; font-size:20px; color:#2abfa3; margin-bottom:8px; margin-top:4px; }
+.hero-script { font-family:'Petit Formal Script',cursive; line-height:0.95; display:block; }
+.hero-script.sweet  { color:#e8407a; font-size:clamp(52px,12vw,72px); }
+.hero-script.little { color:#2abfa3; font-size:clamp(36px,9vw,52px); }
+.hero-script.baby   { color:#f0643a; font-size:clamp(56px,13vw,80px); }
 .on-the-way {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: clamp(13px,3.5vw,17px);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #4caf50;
-  margin: 12px 0 20px;
+  font-family:'Playfair Display',serif; font-weight:700;
+  font-size:clamp(13px,3.5vw,17px); letter-spacing:3px;
+  text-transform:uppercase; color:#4caf50; margin:12px 0 20px;
 }
+.hero-divider { display:flex; align-items:center; gap:12px; margin:0 auto 20px; max-width:320px; }
+.hero-divider-line { flex:1; height:1.5px; background:linear-gradient(90deg,transparent,#fce4c8,transparent); }
+.hero-divider-dot { width:8px; height:8px; border-radius:50%; background:#f5a623; }
+.invite-text { font-family:'Petit Formal Script',cursive; font-size:17px; color:#aaa; margin-bottom:4px; }
+.honoree { font-family:'Petit Formal Script',cursive; font-size:clamp(42px,10vw,60px); color:#e8407a; line-height:1.1; margin-bottom:8px; }
 
-.hero-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 auto 20px;
-  max-width: 320px;
-}
-.hero-divider-line {
-  flex: 1;
-  height: 1.5px;
-  background: linear-gradient(90deg,transparent,#fce4c8,transparent);
-}
-.hero-divider-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #f5a623;
-}
-
-.invite-text {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 17px;
-  color: #aaa;
-  margin-bottom: 4px;
-}
-
-.honoree {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: clamp(42px,10vw,60px);
-  color: #e8407a;
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.info-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.info-pill {
-  background: #fffcf5;
-  border: 2px solid #fce4c8;
-  border-radius: 18px;
-  padding: 16px 18px;
-  text-align: center;
-}
-
-.info-pill.full { grid-column: 1 / -1; }
-
-.ip-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #2abfa3;
-  margin-bottom: 5px;
-}
-
-.ip-value {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2d2417;
-  line-height: 1.45;
-}
-
-.ip-value a {
-  color: #2abfa3;
-  text-decoration: none;
-  font-weight: 700;
-}
-.ip-value a:hover { text-decoration: underline; }
-
+/* ── Info pills ── */
+.info-section { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px; }
+.info-pill { background:#fffcf5; border:2px solid #fce4c8; border-radius:18px; padding:16px 18px; text-align:center; }
+.info-pill.full { grid-column:1/-1; }
+.ip-label { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#2abfa3; margin-bottom:5px; }
+.ip-value { font-size:14px; font-weight:600; color:#2d2417; line-height:1.45; }
+.ip-value a { color:#2abfa3; text-decoration:none; font-weight:700; }
+.ip-value a:hover { text-decoration:underline; }
 .registry-btn {
-  display: inline-block;
-  margin-top: 10px;
-  background: linear-gradient(135deg,#e8407a,#f0643a);
-  color: #fff;
-  font-family: 'Jost', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 8px 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: opacity .2s;
+  display:inline-block; margin-top:10px;
+  background:linear-gradient(135deg,#e8407a,#f0643a);
+  color:#fff; font-family:'Jost',sans-serif; font-size:13px; font-weight:600;
+  letter-spacing:1px; padding:8px 22px; border-radius:999px; text-decoration:none; transition:opacity .2s;
 }
-.registry-btn:hover { opacity: .85; }
+.registry-btn:hover { opacity:.85; }
 
+/* ── RSVP card ── */
 .rsvp-card {
-  background: #fff;
-  border-radius: 28px;
-  border: 2.5px solid #fce4c8;
-  padding: 36px 32px;
-  margin-top: 22px;
-  animation: riseUp 0.8s cubic-bezier(.22,1,.36,1) 0.2s both;
+  background:#fff; border-radius:28px; border:2.5px solid #fce4c8;
+  padding:36px 32px; margin-top:22px;
+  animation:riseUp 0.8s cubic-bezier(.22,1,.36,1) 0.2s both;
 }
+.rsvp-rainbow { height:5px; background:linear-gradient(90deg,#2abfa3,#4caf50,#f5a623,#f0643a,#e8407a,#9b59b6); border-radius:999px; margin-bottom:26px; }
+.rsvp-title { font-family:'Petit Formal Script',cursive; font-size:34px; color:#e8407a; text-align:center; margin-bottom:28px; }
 
-.rsvp-rainbow {
-  height: 5px;
-  background: linear-gradient(90deg,#2abfa3,#4caf50,#f5a623,#f0643a,#e8407a,#9b59b6);
-  border-radius: 999px;
-  margin-bottom: 26px;
-}
-
-.rsvp-title {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 34px;
-  color: #e8407a;
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-.form-row { margin-bottom: 20px; }
-
-.form-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #2abfa3;
-  margin-bottom: 7px;
-}
+/* ── Form ── */
+.form-row { margin-bottom:20px; }
+.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
+.form-label { display:block; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#2abfa3; margin-bottom:7px; }
 
 input[type=text],
 input[type=email],
-input[type=number] {
-  width: 100%;
-  padding: 13px 18px;
-  border: 2px solid #fce4c8;
-  border-radius: 14px;
-  font-family: 'Jost', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #2d2417;
-  background: #fffcf5;
-  outline: none;
-  transition: border-color .2s, background .2s;
+input[type=number],
+input[type=tel] {
+  width:100%; padding:13px 18px; border:2px solid #fce4c8; border-radius:14px;
+  font-family:'Jost',sans-serif; font-size:15px; font-weight:500; color:#2d2417;
+  background:#fffcf5; outline:none; transition:border-color .2s, background .2s;
 }
-input:focus {
-  border-color: #2abfa3;
-  background: #fff;
-}
+input:focus { border-color:#2abfa3; background:#fff; }
 
-.attend-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.attend-opt { position: relative; cursor: pointer; }
-.attend-opt input { position: absolute; opacity:0; width:0; height:0; }
-
+/* ── Attend toggle ── */
+.attend-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
+.attend-opt { position:relative; cursor:pointer; }
+.attend-opt input { position:absolute; opacity:0; width:0; height:0; }
 .attend-face {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 18px 12px;
-  border: 2px solid #fce4c8;
-  border-radius: 16px;
-  background: #fffcf5;
-  cursor: pointer;
-  transition: all .18s ease;
-  user-select: none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px; padding:18px 12px; border:2px solid #fce4c8; border-radius:16px;
+  background:#fffcf5; cursor:pointer; transition:all .18s ease; user-select:none;
 }
+.attend-face .af-main { font-family:'Petit Formal Script',cursive; font-size:18px; color:#aaa; transition:color .18s; }
+.attend-face .af-sub { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:#ccc; transition:color .18s; }
+.attend-opt input:checked + .attend-face.yes-face { border-color:#4caf50; background:#f0faf3; }
+.attend-opt input:checked + .attend-face.yes-face .af-main { color:#2a7a4a; }
+.attend-opt input:checked + .attend-face.yes-face .af-sub  { color:#4caf50; }
+.attend-opt input:checked + .attend-face.no-face { border-color:#e8407a; background:#fdf0f4; }
+.attend-opt input:checked + .attend-face.no-face .af-main { color:#b02a58; }
+.attend-opt input:checked + .attend-face.no-face .af-sub  { color:#e8407a; }
+.attend-face:hover { border-color:#2abfa3; background:#f0faf8; }
 
-.attend-face .af-main {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 18px;
-  color: #aaa;
-  transition: color .18s;
-}
-.attend-face .af-sub {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #ccc;
-  transition: color .18s;
-}
-
-.attend-opt input:checked + .attend-face.yes-face {
-  border-color: #4caf50;
-  background: #f0faf3;
-}
-.attend-opt input:checked + .attend-face.yes-face .af-main { color: #2a7a4a; }
-.attend-opt input:checked + .attend-face.yes-face .af-sub  { color: #4caf50; }
-
-.attend-opt input:checked + .attend-face.no-face {
-  border-color: #e8407a;
-  background: #fdf0f4;
-}
-.attend-opt input:checked + .attend-face.no-face .af-main { color: #b02a58; }
-.attend-opt input:checked + .attend-face.no-face .af-sub  { color: #e8407a; }
-
-.attend-face:hover { border-color: #2abfa3; background: #f0faf8; }
-
+/* ── Submit ── */
 .submit-btn {
-  width: 100%;
-  margin-top: 26px;
-  padding: 17px;
-  background: linear-gradient(135deg,#e8407a 0%,#f0643a 50%,#f5a623 100%);
-  color: #fff;
-  font-family: 'Jost', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: opacity .2s, transform .15s;
+  width:100%; margin-top:26px; padding:17px;
+  background:linear-gradient(135deg,#e8407a 0%,#f0643a 50%,#f5a623 100%);
+  color:#fff; font-family:'Jost',sans-serif; font-size:16px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase; border:none; border-radius:16px;
+  cursor:pointer; transition:opacity .2s, transform .15s;
 }
-.submit-btn:hover { opacity:.9; transform: translateY(-2px); }
-.submit-btn:active { transform: scale(.98); }
+.submit-btn:hover { opacity:.9; transform:translateY(-2px); }
+.submit-btn:active { transform:scale(.98); }
+.submit-btn:disabled { opacity:.6; transform:none; cursor:not-allowed; }
+.error-msg { display:none; margin-top:14px; text-align:center; color:#e8407a; font-size:14px; font-weight:600; }
 
-.success-box {
-  display: none;
-  text-align: center;
-  padding: 16px 0;
-  animation: riseUp .5s ease both;
+/* ── Confirmation screen ── */
+.confirm-screen {
+  display:none;
+  text-align:center;
+  padding:48px 28px 36px;
+  animation:riseUp 0.6s cubic-bezier(.22,1,.36,1) both;
 }
-.success-box .s-title {
-  font-family: 'Petit Formal Script', cursive;
-  font-size: 40px;
-  color: #e8407a;
-  margin-bottom: 10px;
+.confetti-burst { font-size:60px; display:block; margin-bottom:16px; animation:pop 0.6s cubic-bezier(.22,1,.36,1) both; }
+.confirm-title { font-family:'Petit Formal Script',cursive; font-size:clamp(44px,11vw,66px); color:#e8407a; line-height:1; margin-bottom:8px; }
+.confirm-sub {
+  font-family:'Playfair Display',serif; font-weight:700;
+  font-size:clamp(12px,3vw,15px); letter-spacing:2.5px;
+  text-transform:uppercase; color:#4caf50; margin-bottom:28px;
 }
-.success-box .s-body {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.7;
-}
+.confirm-details { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:22px; }
+.cd-pill { background:#fffcf5; border:2px solid #fce4c8; border-radius:18px; padding:16px 18px; text-align:center; }
+.cd-pill.full { grid-column:1/-1; }
+.cd-label { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#2abfa3; margin-bottom:5px; }
+.cd-value { font-size:14px; font-weight:600; color:#2d2417; line-height:1.5; }
+.cd-value a { color:#2abfa3; text-decoration:none; font-weight:700; }
+.cd-value a:hover { text-decoration:underline; }
+.confirm-note { font-size:13px; color:#aaa; line-height:1.7; }
+.confirm-note strong { color:#2d2417; }
 
-@keyframes riseUp {
-  from { opacity:0; transform:translateY(28px); }
-  to   { opacity:1; transform:translateY(0); }
-}
+@keyframes riseUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pop { from { opacity:0; transform:scale(.4); } to { opacity:1; transform:scale(1); } }
 
 @media (max-width:500px) {
   .hero { padding:32px 20px 28px; }
   .rsvp-card { padding:26px 18px; }
   .info-section { grid-template-columns:1fr; }
   .info-pill.full { grid-column:1; }
+  .form-row-2 { grid-template-columns:1fr; }
+  .confirm-details { grid-template-columns:1fr; }
+  .cd-pill.full { grid-column:1; }
 }
 </style>
 </head>
 <body>
 <div class="page">
 
+<!-- Confetti dots -->
 <div class="dots" aria-hidden="true">
   <div class="dot" style="width:10px;height:10px;background:#e8407a;top:6%;left:8%;opacity:.5;"></div>
   <div class="dot" style="width:7px;height:7px;background:#f5a623;top:12%;left:78%;opacity:.45;"></div>
@@ -364,9 +181,8 @@ input:focus {
   <div class="dot" style="width:6px;height:6px;background:#f5a623;top:90%;left:50%;opacity:.4;"></div>
 </div>
 
+<!-- Fruit illustrations -->
 <div class="fruit-scene" aria-hidden="true">
-
-  <!-- Watermelon slice top-left -->
   <svg width="115" height="95" style="top:18px;left:-20px;transform:rotate(-15deg);opacity:.93;" viewBox="0 0 115 95">
     <path d="M8 65 Q57 2 106 65 Z" fill="#f87171"/>
     <path d="M14 65 Q57 14 100 65 Z" fill="#fca5a5" opacity=".45"/>
@@ -377,8 +193,6 @@ input:focus {
     <ellipse cx="57" cy="30" rx="4" ry="6.5" fill="#1a1206" transform="rotate(4,57,30)"/>
     <ellipse cx="78" cy="42" rx="4" ry="6.5" fill="#1a1206" transform="rotate(12,78,42)"/>
   </svg>
-
-  <!-- Strawberry top-right -->
   <svg width="82" height="98" style="top:8px;right:-2px;transform:rotate(12deg);opacity:.91;" viewBox="0 0 82 98">
     <path d="M41 90 C14 66 4 46 12 28 Q21 8 41 12 Q61 8 70 28 C78 46 68 66 41 90Z" fill="#ef4444"/>
     <path d="M41 90 C14 66 4 46 12 28 Q21 8 41 12 Q61 8 70 28 C78 46 68 66 41 90Z" fill="#fca5a5" opacity=".35" clip-path="url(#sb1)"/>
@@ -392,8 +206,6 @@ input:focus {
     <path d="M41 12 C41 2 41 2 41 2" fill="none" stroke="#4caf50" stroke-width="3" stroke-linecap="round"/>
     <path d="M51 15 C62 4 72 8 68 18" fill="#4caf50" stroke="#388e3c" stroke-width="1.5"/>
   </svg>
-
-  <!-- Orange top-right area -->
   <svg width="72" height="72" style="top:58px;right:58px;transform:rotate(8deg);opacity:.86;" viewBox="0 0 72 72">
     <circle cx="36" cy="40" r="29" fill="#fb923c"/>
     <circle cx="36" cy="40" r="25" fill="none" stroke="#f97316" stroke-width="1.2" opacity=".5"/>
@@ -405,16 +217,12 @@ input:focus {
     <path d="M29 12 C31 4 36 2 41 5 C39 7 35 8 29 12Z" fill="#4caf50"/>
     <line x1="33" y1="10" x2="33" y2="2" stroke="#388e3c" stroke-width="2" stroke-linecap="round"/>
   </svg>
-
-  <!-- Banana left side upper -->
   <svg width="92" height="68" style="top:175px;left:0px;transform:rotate(28deg);opacity:.82;" viewBox="0 0 92 68">
     <path d="M10 56 Q12 18 46 8 Q76 0 84 22 Q87 35 74 39 Q62 43 39 37 Q18 30 16 53 Z" fill="#fde047"/>
     <path d="M10 56 Q12 18 46 8 Q76 0 84 22 Q87 35 74 39 Q62 43 39 37 Q18 30 16 53" fill="none" stroke="#ca8a04" stroke-width="1.5" opacity=".4"/>
     <path d="M10 56 Q18 63 20 59 Q18 49 16 53 Z" fill="#92400e"/>
     <path d="M84 22 Q88 16 90 12 Q85 10 81 16 Z" fill="#92400e"/>
   </svg>
-
-  <!-- Cherries left side mid -->
   <svg width="88" height="105" style="top:275px;left:-14px;transform:rotate(-8deg);opacity:.89;" viewBox="0 0 88 105">
     <path d="M44 14 C44 14 31 37 22 53" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round"/>
     <path d="M44 14 C44 14 56 37 65 53" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round"/>
@@ -426,8 +234,6 @@ input:focus {
     <circle cx="65" cy="65" r="21" fill="#f87171" opacity=".28" clip-path="url(#ch2)"/>
     <clipPath id="ch2"><ellipse cx="57" cy="57" rx="11" ry="9"/></clipPath>
   </svg>
-
-  <!-- Pineapple right side -->
   <svg width="78" height="136" style="top:310px;right:-6px;transform:rotate(10deg);opacity:.89;" viewBox="0 0 78 136">
     <ellipse cx="39" cy="96" rx="29" ry="37" fill="#fbbf24"/>
     <path d="M13 78 Q39 62 65 78" fill="none" stroke="#d97706" stroke-width="1.3" opacity=".55"/>
@@ -442,8 +248,6 @@ input:focus {
     <path d="M39 59 C26 54 19 42 21 30" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round"/>
     <path d="M39 59 C52 54 59 42 57 30" fill="none" stroke="#66bb6a" stroke-width="1.2" stroke-linecap="round"/>
   </svg>
-
-  <!-- Kiwi slice right lower -->
   <svg width="72" height="72" style="top:475px;right:6px;transform:rotate(-18deg);opacity:.86;" viewBox="0 0 72 72">
     <circle cx="36" cy="36" r="33" fill="#4caf50"/>
     <circle cx="36" cy="36" r="27" fill="#a3e635"/>
@@ -452,13 +256,9 @@ input:focus {
     <path d="M15 36 L57 36" stroke="#65a30d" stroke-width="1" opacity=".5"/>
     <path d="M21 21 L51 51" stroke="#65a30d" stroke-width="1" opacity=".4"/>
     <path d="M51 21 L21 51" stroke="#65a30d" stroke-width="1" opacity=".4"/>
-    <path d="M24 14 L48 58" stroke="#65a30d" stroke-width="1" opacity=".3"/>
-    <path d="M48 14 L24 58" stroke="#65a30d" stroke-width="1" opacity=".3"/>
     <circle cx="36" cy="36" r="5.5" fill="#84cc16"/>
     <circle cx="36" cy="36" r="3" fill="#fef9c3"/>
   </svg>
-
-  <!-- Grapes bottom-left -->
   <svg width="98" height="115" style="top:598px;left:-12px;transform:rotate(-12deg);opacity:.87;" viewBox="0 0 98 115">
     <path d="M49 10 C49 10 36 20 28 30" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round"/>
     <path d="M49 10 C49 10 58 22 58 33" fill="none" stroke="#4caf50" stroke-width="2.5" stroke-linecap="round"/>
@@ -471,13 +271,7 @@ input:focus {
     <circle cx="33" cy="83" r="15" fill="#6d28d9"/>
     <circle cx="57" cy="83" r="15" fill="#9333ea"/>
     <circle cx="46" cy="101" r="13" fill="#7c3aed"/>
-    <circle cx="33" cy="43" r="15" fill="#e9d5ff" opacity=".22" clip-path="url(#gr1)"/>
-    <clipPath id="gr1"><ellipse cx="27" cy="37" rx="7" ry="5"/></clipPath>
-    <circle cx="57" cy="43" r="15" fill="#e9d5ff" opacity=".22" clip-path="url(#gr2)"/>
-    <clipPath id="gr2"><ellipse cx="51" cy="37" rx="7" ry="5"/></clipPath>
   </svg>
-
-  <!-- Peach bottom-right -->
   <svg width="82" height="88" style="top:640px;right:0px;transform:rotate(14deg);opacity:.88;" viewBox="0 0 82 88">
     <circle cx="41" cy="50" r="33" fill="#fb923c"/>
     <circle cx="41" cy="50" r="33" fill="#fde68a" opacity=".38" clip-path="url(#pc1)"/>
@@ -486,23 +280,12 @@ input:focus {
     <path d="M41 18 C38 10 43 5 43 5" fill="none" stroke="#388e3c" stroke-width="2" stroke-linecap="round"/>
     <path d="M37 24 C41 22 43 24 41 43" fill="none" stroke="#ea580c" stroke-width="1.5" opacity=".45" stroke-linecap="round"/>
   </svg>
-
-  <!-- Lemon bottom-center -->
-  <svg width="80" height="72" style="top:850px;left:46%;transform:translateX(-50%) rotate(-20deg);opacity:.83;" viewBox="0 0 80 72">
-    <ellipse cx="40" cy="40" rx="33" ry="25" fill="#fde047"/>
-    <ellipse cx="40" cy="40" rx="33" ry="25" fill="#fef9c3" opacity=".45" clip-path="url(#lm1)"/>
-    <clipPath id="lm1"><ellipse cx="28" cy="30" rx="18" ry="12"/></clipPath>
-    <path d="M7 40 Q40 28 73 40" fill="none" stroke="#ca8a04" stroke-width="1" opacity=".38"/>
-    <path d="M7 40 Q40 52 73 40" fill="none" stroke="#ca8a04" stroke-width="1" opacity=".38"/>
-    <path d="M40 15 C37 7 31 5 29 9" fill="#fde047" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round"/>
-    <path d="M40 15 C43 7 49 5 51 9" fill="#fde047" stroke="#ca8a04" stroke-width="1.5" stroke-linecap="round"/>
-  </svg>
-
 </div>
 
-<!-- Content -->
+<!-- ── Main content ── -->
 <div class="content">
 
+  <!-- Hero info card -->
   <div class="hero">
     <div class="hero-rainbow"></div>
     <p class="eyebrow">Please join us to celebrate</p>
@@ -517,7 +300,6 @@ input:focus {
     </div>
     <p class="invite-text">a baby shower in honor of</p>
     <p class="honoree">Christina Orsi</p>
-
     <div class="info-section">
       <div class="info-pill">
         <div class="ip-label">Date</div>
@@ -543,87 +325,146 @@ input:focus {
     </div>
   </div>
 
+  <!-- RSVP card — form + confirmation in one -->
   <div class="rsvp-card">
     <div class="rsvp-rainbow"></div>
-    <p class="rsvp-title">Will you be joining us?</p>
 
-    <form id="rsvp-form" action="https://formspree.io/f/YOUR_ENDPOINT" method="POST">
+    <!-- RSVP Form -->
+    <div id="form-view">
+      <p class="rsvp-title">Will you be joining us?</p>
+      <form id="rsvp-form">
+        <input type="hidden" name="access_key" value="20d6da96-8a61-46af-9b07-cdb9280a49cc">
+        <input type="hidden" name="subject" value="New RSVP – Christina's Baby Shower">
+        <input type="hidden" name="from_name" value="Baby Shower RSVP">
+        <input type="hidden" name="replyto" id="replyto-field" value="">
 
-      <div class="form-row">
-        <label class="form-label" for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="First &amp; last name" required>
+        <div class="form-row-2">
+          <div>
+            <label class="form-label" for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="First &amp; last name" required>
+          </div>
+          <div>
+            <label class="form-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="guests">Number of Guests</label>
+          <input type="number" id="guests" name="guests" min="1" max="10" value="1" required>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">Attending?</label>
+          <div class="attend-grid">
+            <label class="attend-opt">
+              <input type="radio" name="attending" value="Yes, I'll be there!" required>
+              <div class="attend-face yes-face">
+                <span class="af-main">Joyfully accepts</span>
+                <span class="af-sub">Yes, I'll be there!</span>
+              </div>
+            </label>
+            <label class="attend-opt">
+              <input type="radio" name="attending" value="Regretfully declines">
+              <div class="attend-face no-face">
+                <span class="af-main">Regretfully declines</span>
+                <span class="af-sub">Can't make it</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Send My RSVP</button>
+        <p class="error-msg" id="error-msg">Something went wrong — please try again.</p>
+      </form>
+    </div>
+
+    <!-- Confirmation screen (same card, swaps in) -->
+    <div class="confirm-screen" id="confirm-view">
+      <span class="confetti-burst">🎊</span>
+      <h1 class="confirm-title">You're confirmed!</h1>
+      <p class="confirm-sub">We can't wait to celebrate with you</p>
+      <div class="hero-divider" style="margin:0 auto 26px;">
+        <div class="hero-divider-line"></div>
+        <div class="hero-divider-dot"></div>
+        <div class="hero-divider-line"></div>
       </div>
-
-      <div class="form-row">
-        <label class="form-label" for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label" for="guests">Number of Guests</label>
-        <input type="number" id="guests" name="guests" min="1" max="10" value="1" required>
-      </div>
-
-      <div class="form-row">
-        <label class="form-label">Attending?</label>
-        <div class="attend-grid">
-          <label class="attend-opt">
-            <input type="radio" name="attending" value="Yes, I'll be there!" required>
-            <div class="attend-face yes-face">
-              <span class="af-main">Joyfully accepts</span>
-              <span class="af-sub">Yes, I'll be there!</span>
-            </div>
-          </label>
-          <label class="attend-opt">
-            <input type="radio" name="attending" value="Regretfully declines">
-            <div class="attend-face no-face">
-              <span class="af-main">Regretfully declines</span>
-              <span class="af-sub">Can't make it</span>
-            </div>
-          </label>
+      <div class="confirm-details">
+        <div class="cd-pill">
+          <div class="cd-label">Date</div>
+          <div class="cd-value">Saturday<br>July 11th, 2026</div>
+        </div>
+        <div class="cd-pill">
+          <div class="cd-label">Time</div>
+          <div class="cd-value">2:00 pm</div>
+        </div>
+        <div class="cd-pill full">
+          <div class="cd-label">Location</div>
+          <div class="cd-value">
+            <a href="https://maps.google.com/?q=860+NJ-36+Leonardo+NJ+07737" target="_blank" rel="noopener">
+              Leonardo American Legion<br>860 NJ-36 &middot; Leonardo, NJ 07737
+            </a>
+          </div>
+        </div>
+        <div class="cd-pill full">
+          <div class="cd-label">Registry</div>
+          <div class="cd-value">Babylist</div>
+          <a class="registry-btn" href="https://babylist.com/babyrice914" target="_blank" rel="noopener" style="margin-top:10px;">View the Registry</a>
         </div>
       </div>
-
-      <button type="submit" class="submit-btn">Send My RSVP</button>
-    </form>
-
-    <div class="success-box" id="success-msg">
-      <p class="s-title">You're all set!</p>
-      <p class="s-body">
-        Thank you so much! We can't wait to celebrate<br>this sweet little one with you.<br><br>
-        <strong>Saturday, July 11th &middot; 2:00 pm</strong><br>
-        Leonardo American Legion<br>860 NJ-36, Leonardo, NJ 07737
-      </p>
+      <p class="confirm-note">A confirmation email is on its way to your inbox.<br><strong>Screenshot or bookmark this page</strong> to keep your details handy!</p>
     </div>
-  </div>
 
+  </div>
 </div>
 </div>
 
 <script>
 const form = document.getElementById('rsvp-form');
-const success = document.getElementById('success-msg');
+const emailInput = document.getElementById('email');
+const replyto = document.getElementById('replyto-field');
+const errorMsg = document.getElementById('error-msg');
+const submitBtn = document.getElementById('submit-btn');
+const formView = document.getElementById('form-view');
+const confirmView = document.getElementById('confirm-view');
+
+emailInput.addEventListener('input', function() {
+  replyto.value = this.value;
+});
+
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn = form.querySelector('.submit-btn');
-  btn.textContent = 'Sending\u2026';
-  btn.disabled = true;
+  submitBtn.textContent = 'Sending\u2026';
+  submitBtn.disabled = true;
+  errorMsg.style.display = 'none';
+
+  const data = Object.fromEntries(new FormData(form));
+
   try {
-    const res = await fetch(form.action, {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
     });
-    if (res.ok) {
-      form.style.display = 'none';
-      success.style.display = 'block';
+    const json = await res.json();
+    if (json.success) {
+      formView.style.display = 'none';
+      confirmView.style.display = 'block';
+      window.scrollTo({ top: confirmView.offsetTop - 40, behavior: 'smooth' });
     } else {
-      btn.textContent = 'Something went wrong \u2014 try again';
-      btn.disabled = false;
+      submitBtn.textContent = 'Send My RSVP';
+      submitBtn.disabled = false;
+      errorMsg.style.display = 'block';
     }
   } catch {
-    btn.textContent = 'Something went wrong \u2014 try again';
-    btn.disabled = false;
+    submitBtn.textContent = 'Send My RSVP';
+    submitBtn.disabled = false;
+    errorMsg.style.display = 'block';
   }
 });
 </script>
